@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./childModal.css";
 import { useSelector, useDispatch } from "react-redux";
 import { trialFetch } from "../../../../../actions";
+import { Button } from "../../Button/Button";
 
 export const ChildModal = (props) => {
   if (!props.isModalOpenState) return null;

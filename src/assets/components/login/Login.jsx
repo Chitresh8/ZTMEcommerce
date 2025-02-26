@@ -56,10 +56,10 @@ import useInput from "./useInput";
 // Reducer function for form state (alternative to useState for more complex forms)
 const formReducer = (state, action) => {
   switch (action.type) {
-    // case "SET_EMAIL":
-    //   return { ...state, email: action.payload };
-    // case "SET_PASSWORD":
-    //   return { ...state, password: action.payload };
+    case "SET_EMAIL":
+      return { ...state, email: action.payload };
+    case "SET_PASSWORD":
+      return { ...state, password: action.payload };
     case "SET_ERROR":
       return { ...state, error: action.payload };
     default:
@@ -73,7 +73,7 @@ export const Login = () => {
   const [password, passwordInput] = useInput("");
   
   // Using useReducer to manage form state
-  const [state, dispatch] = useReducer(formReducer, { /*email: "", password: "",*/ error: null });
+  const [state, dispatch] = useReducer(formReducer, { email: "", password: "", error: null });
 
   // Optimized loginClick function with useCallback
   const loginClick = useCallback((event) => {

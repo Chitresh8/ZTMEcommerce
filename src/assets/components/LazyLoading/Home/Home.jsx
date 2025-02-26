@@ -112,14 +112,14 @@ const Home = () => {
               <li key={item.id}>{item.title}</li>
             </ul> ;
           })}
+      <p>
+        Go to
+        <button onClick={() => navigate("/about")}>About</button> page{" "}
+      </p>
         </ul>
       )}
 
-      <button onClick={handleHomeButtonClick}>Go to Home</button>
-      <p>
-        Go to{" "}
-        <button onClick={() => navigate("/about")}>About</button> page{" "}
-      </p>
+      <button onClick={handleHomeButtonClick}>Click for API Data</button>
     </>
   );
 };

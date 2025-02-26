@@ -5,6 +5,7 @@ export const GetApiPagination = () => {
   const [page, setPage] = useState(1); // Start at page 1
   const [totalPages, setTotalPages] = useState(0); // To track total pages
   const imagesPerPage = 50; // Set images per page to 50
+  const [loading, setLoading] = useState(false);
 
   function greet(name) {
     // console.log('Hello, ' + name + '!');
@@ -25,15 +26,18 @@ greet('Geek');
           setImages(data);
 
         // Check if data.images exists and is an array
-        if (Array.isArray(data.images)) {
-          // Assuming the API returns the total number of images
-          setImages(data.images);
-          setTotalPages(Math.ceil(data.total / imagesPerPage)); // Calculate total pages
-        } else {
-          console.error("Images data is not an array:", data.images);
-          setImages([]); // Reset images to avoid undefined issues
-          setTotalPages(0); // Reset total pages
-        }
+        // if (Array.isArray(data.images)) {
+        //   // Assuming the API returns the total number of images
+        //   setImages(data.images);
+        //   setTotalPages(Math.ceil(data.total / imagesPerPage)); // Calculate total pages
+        // } else {
+        //   console.error("Images data is not an array:", data.images);
+        //   setImages([]); // Reset images to avoid undefined issues
+        //   setTotalPages(0); // Reset total pages
+        // }
+            // Set total pages. Hard-code total images for JSONPlaceholder.
+            const totalImages = 5000; // JSONPlaceholder returns 5000 images
+            setTotalPages(Math.ceil(totalImages / imagesPerPage)); // Calculate total pages
       } catch (error) {
         console.error("Error fetching images:", error);
       }
@@ -57,10 +61,20 @@ greet('Geek');
 
   return (
     <div>
+       <h3>Image Gallery</h3>
       <div className="gallery">
-        {images.map((image, index) => (
-          <img key={index} src={image.url} alt={image.alt} />
-        ))}
+      {loading ? (
+          <div>Loading...</div> // Display loading message while fetching
+        ) : (
+          images.map((image, index) => (
+            <img
+              key={index}
+              src={image.url}
+              alt={image.title} // Use title as alt text
+              style={{ width: '150px', height: 'auto', margin: '5px' }}
+            />
+          ))
+        )}
       </div>
 
       <div className="pagination">
@@ -74,6 +88,7 @@ greet('Geek');
           </button>
         ))}
       </div>
+      <progress style={{ width: '100%', display: loading ? 'block' : 'none' }} />
       <progress></progress>
       <nav></nav>
       <time></time>
