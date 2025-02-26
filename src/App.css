@@ -38,10 +38,11 @@
   display: grid;
   /* grid-template-rows: repeat(3, minmax(0, 1fr)); */
   /* grid-template-columns:250px 250px 250px; */
-  border: 1px solid red;
   /* grid-template-columns: repeat (5, 200px); */
-  grid-template-columns: repeat(auto-fit,250px);
-  grid-template-columns: repeat(3,1fr);
+  /* grid-template-columns: repeat(auto-fit,250px); */
+  /* grid-template-columns: repeat(3,1fr); */
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  border: 1px solid red;
   gap:15px;
   justify-content:center;
 }
