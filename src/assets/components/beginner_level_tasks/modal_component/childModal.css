@@ -1,0 +1,89 @@
+/* .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.modal-body {
+} */
+
+
+
+/* .modal-overlay should cover the entire screen */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* .modal-content for the modal's container */
+.modal-content {
+  background: white;
+  width: 70%;
+  max-height: 90vh; /* Ensures the modal doesn't exceed the screen's height */
+  overflow: hidden; /* Prevents the modal from scrolling */
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+/* Style the modal body */
+.modal-body {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+/* .scrollable-content is where you want scrolling for the image list */
+.scrollable-content {
+  max-height: 50vh; /* Set the max height for the scrollable area */
+  overflow-y: auto; /* Enable vertical scrolling if necessary */
+  padding: 10px;
+  margin-top: 20px;
+}
+
+/* Style for each modal item */
+.modal-item {
+  margin-bottom: 10px;
+}
+
+/* Style the images in the modal */
+.modal-image {
+  width: 100px;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
