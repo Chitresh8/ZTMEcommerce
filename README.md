@@ -297,4 +297,4 @@ Create a file upload UI that shows progress using a React component.
 Build a React app with multiple themes that can be switched at runtime.
 These problems range from basic tasks like creating components to advanced challenges like building complete applications with state management, routing, and data fetching. Each task helps reinforce key concepts and build proficiency with React!
 
-
+Ways to create react app - https://www.sitepoint.com/best-create-react-app-alternatives-for-different-use-cases/

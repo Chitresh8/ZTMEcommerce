@@ -27,7 +27,7 @@ function App() {
     //Simulate a delay for 2 seconds
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1);
     return () => clearTimeout(timer);
   });
 
@@ -57,12 +57,16 @@ function App() {
           <ItemListManager />
           <Sildes slides={SLIDES_DATA} />
         </div>
+        <div className="card-item"> 
         <UseFetchHookApi />
+        </div>
+        <div className="card-item"> 
         <ProgressBarParent />
+        </div>
         <div className="card-item">
           <Router>
             {/* <Suspense fallback={<div>Loading...</div>}> */}
-            <Suspense fallback={loading ? <ProgressBarParent /> : null}>
+            <Suspense fallback={loading ? "Loading..." : null}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />

@@ -78,11 +78,12 @@ const Home = () => {
   }, [loading, progress]);
 
   useEffect(() => {
-    if (!loading && progress === 100) {
+    if ( progress === 100) {
       // Fetch data once progress reaches 100%
       dispatch(fetchData());
+      setLoading(false);
     }
-  }, [loading, progress, dispatch]);
+  }, [ progress, dispatch]);
 
   const handleHomeButtonClick = () => {
     setLoading(true); // Start loading (progress bar)
@@ -105,7 +106,7 @@ const Home = () => {
       <p>Home Page</p>
 
       {/* Show the data once loading is complete */}
-      {!loading && progress === 100 && (
+      {!loading && progress === 100 && data && (
         <ul>
           {data.map((item) => {
             return<ul>
